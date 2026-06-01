@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap');
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-gold: #C9A84C;
+  --color-gold-dim: rgba(201, 168, 76, 0.15);
+  --color-cream: #F5ECD7;
+  --color-surface: #111111;
+  --color-surface-2: #181818;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-text: rgba(255, 255, 255, 0.95);
+  --color-text-muted: rgba(255, 255, 255, 0.75);
+  --color-text-dim: rgba(255, 255, 255, 0.5);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 9999px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Global transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(100%);
+}
+
+/* Scroll reveal */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(4px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Premium pill button */
+.btn-pill {
+  position: relative;
+  display: inline-flex;
+  border-radius: var(--radius-full);
+  padding: 1px;
+  background: linear-gradient(
+    45deg,
+    rgba(201, 168, 76, 0.5) 0%,
+    rgba(201, 168, 76, 0.08) 30%,
+    rgba(201, 168, 76, 0.08) 70%,
+    rgba(201, 168, 76, 0.5) 100%
+  );
+}
+
+.btn-pill-inner {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--color-bg);
+  backdrop-filter: blur(12px);
+  padding: 0.85rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  transition: background-color 0.3s ease;
+}
+
+.btn-pill:hover .btn-pill-inner {
+  background: var(--color-surface-2);
+}
+
+/* Gold filled pill */
+.btn-pill-gold {
+  background: linear-gradient(
+    45deg,
+    var(--color-gold) 0%,
+    #e0bc56 50%,
+    var(--color-gold) 100%
+  );
+}
+
+.btn-pill-gold .btn-pill-inner {
+  background: transparent;
+  color: var(--color-bg);
+  font-weight: 500;
+}
+
+.btn-pill-gold:hover .btn-pill-inner {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Label style (tiny uppercase) */
+.label-xs {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--color-text-dim);
+}
+
+/* Section label */
+.section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Section heading (large display) */
+.section-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
